@@ -43,9 +43,9 @@ class MyApp extends StatelessWidget {
         supportedLocales: S.delegate.supportedLocales,
         title: 'AceTech',
         theme: ThemeData(
-          primaryColor: DefaultColor,
+          primaryColor: defaultColor,
           appBarTheme: const AppBarTheme(
-            color: PrimaryColor,
+            color: primaryColor,
           ),
         ),
         initialRoute: '/',

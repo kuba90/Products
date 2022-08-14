@@ -30,8 +30,8 @@ class PrimaryButton extends StatelessWidget {
     return ElevatedButton(
       style: ButtonStyle(
         backgroundColor: isDisabled
-            ? MaterialStateProperty.all(DisabledColor)
-            : MaterialStateProperty.all(PrimaryColor),
+            ? MaterialStateProperty.all(disabledColor)
+            : MaterialStateProperty.all(primaryColor),
         splashFactory:
             isDisabled ? NoSplash.splashFactory : InkSplash.splashFactory,
         elevation: isDisabled

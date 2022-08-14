@@ -53,6 +53,7 @@ class _ProductScreenState extends State<ProductScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(product.id == null
             ? S.of(context).addProduct
             : S.of(context).editProduct),

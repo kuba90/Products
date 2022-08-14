@@ -68,7 +68,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
   Future<ProductState> _deleteProductList(String id) async {
     int productIndex =
         state.listProducts.indexWhere((element) => element.id == id);
-    await productHive.deleteAt(productIndex);
+    await productHive.delete(productIndex);
     final List<Product> list = List.from(state.listProducts);
     list.removeAt(productIndex);
 
