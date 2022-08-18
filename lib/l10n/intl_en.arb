@@ -8,5 +8,7 @@
     "editProduct": "Edit product",
     "removeProduct": "Are you sure you want to remove?",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "dataAdded": "Data has been added",
+    "fillFields": "Please fill in the fields"
 }

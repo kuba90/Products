@@ -149,6 +149,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Data has been added`
+  String get dataAdded {
+    return Intl.message(
+      'Data has been added',
+      name: 'dataAdded',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please fill in the fields`
+  String get fillFields {
+    return Intl.message(
+      'Please fill in the fields',
+      name: 'fillFields',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

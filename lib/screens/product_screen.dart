@@ -1,12 +1,13 @@
 /* External dependencies */
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:product/widgets/custom_button.dart';
 
 /* Local dependencies */
 import '../bloc/bloc/product_bloc.dart';
 import '../generated/l10n.dart';
 import '/models/product_model.dart';
+import '/theme/colors.dart';
+import '/widgets/custom_button.dart';
 
 class ProductScreen extends StatefulWidget {
   static const routeName = '/editProduct';
@@ -120,18 +121,37 @@ class _ProductScreenState extends State<ProductScreen> {
                 ),
                 onPressed: () {
                   if (product.id != null) {
-                    bloc.add(
-                        UpdateProductEvent(product: product, id: product.id!));
+                    if (product.title.isNotEmpty) {
+                      bloc.add(UpdateProductEvent(
+                          product: product, id: product.id!));
 
-                    Navigator.pop(context);
+                      Navigator.pop(context);
+                    } else {}
                   } else {
-                    product.id = DateTime.now().toString();
+                    if (product.title.isNotEmpty) {
+                      product.id = DateTime.now().toString();
 
-                    bloc.add(AddProductEvent(product: product));
+                      bloc.add(AddProductEvent(product: product));
 
-                    product.id == null;
+                      product.id == null;
 
-                    Navigator.pop(context);
+                      Navigator.pop(context);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15)),
+                            content: Text(
+                              product.title.isNotEmpty
+                                  ? S.of(context).dataAdded
+                                  : S.of(context).fillFields,
+                              textAlign: TextAlign.center,
+                            ),
+                            backgroundColor: primaryColor,
+                            behavior: SnackBarBehavior.floating,
+                            width: 300),
+                      );
+                    }
                   }
                 },
               ),
